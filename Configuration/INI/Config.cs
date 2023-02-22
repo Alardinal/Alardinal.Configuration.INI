@@ -17,11 +17,17 @@
                 "#Alardinal INI configuration."
             });
 
-            if (setup == null)
+            if (fileConfigurationInfo.Exists)
+            {
                 Reload();
-            else
+            }
+            else if (setup != null)
             {
                 setup.Invoke(this);
+                Save();
+            }
+            else
+            {
                 Save();
             }
         }
